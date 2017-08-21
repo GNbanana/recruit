@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" id="page1">
+                <div class="slide_content">
+                    <img class="slide1_img1" src="images/slide1_img1.png" alt="">
+                    <img class="slide1_img7" src="images/slide1_img7.png" alt="">
+                    <div class="con_img1">
+                        <img class="slide1_img2" src="images/slide1_img2.png" alt="">
+                        <img class="slide1_img3" src="images/slide1_img3.png" alt="">
+                        <img class="slide1_img4" src="images/slide1_img4.png" alt="">
+                        <img class="slide1_img5" src="images/slide1_img5.png" alt="">
+                        <img class="slide1_img6" src="images/slide1_img6.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="page2">
+                <div class="slide_content">
+                    <img class="slide2_img1" src="images/slide2_img1.png" alt="">
+                    <div class="con_img2">
+                        <img class="slide2_img2" src="images/slide2_img2.png" alt="">
+                        <img class="slide2_img3" src="images/slide2_img3.png" alt="">
+                        <img class="slide2_img4" src="images/slide2_img4.png" alt="">
+                        <img class="slide2_img5" src="images/slide2_img5.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="page3">
+                <div class="slide_content">
+                    <img class="slide3_img1" src="images/slide3_img1.png" alt="">
+                    <img class="slide3_img2" src="images/slide3_img2.png" alt="">
+                    <img class="slide3_img3" src="images/slide3_img3.png" alt="">
+                    <img class="slide3_img4" src="images/slide3_img4.png" alt="">
+                    <div class="code_div">
+                        <ul class="code_ul">
+                            <li><img src="images/slide3_img5.png" alt=""><p>C/C++ : 10%</p></li>
+                            <li><img src="images/slide3_img5.png" alt=""><p>Nodejs : 20%</p></li>
+                            <li><img src="images/slide3_img5.png" alt=""><p>PHP : 25%</p></li>
+                        </ul>
+                        <ul class="code_ul">
+                            <li><img src="images/slide3_img5.png" alt=""><p>JAVA : 15%</p></li>
+                            <li><img src="images/slide3_img5.png" alt=""><p>Other : 10%</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="page4">
+                <div class="slide_content">
+                    <img class="slide4_img1" src="images/slide4_img1.png" alt="">
+                    <img class="slide4_img2" src="images/slide4_img2.png" alt="">
+                    <img class="slide4_img3" src="images/slide4_img3.png" alt="">
+                    <div class="works_div">
+                        <div><a href="http://gpa.fyscu.com/home/account/login.html">▼飞扬绩点计算器</a></div>
+                        <div><a href="http://fyscu.com/">▼飞扬官网</a></div>
+                        <div><a href="http://121.41.85.236:9528/?appId=1009&callback=http%3A%2F%2Fr.fyscu.com%2FHome%2FAccountPage%2FucLogin">▼飞扬报修系统</a></div>
+                        <div><a href="http://tech.fyscu.com/">▼飞扬维修页面</a></div>
+                        <div><a href="http://lab.fyscu.com/">▼研发实验室</a></div>
+                        <div><a href="http://log.fyscu.com/">▼术业有专攻</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="page5">
+                <div class="slide_content">
+                    <img class="slide5_img1" src="images/slide5_img1.png" alt="">
+                    <div class="con_img5">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="page6">
+                <div class="slide_content">
+                    <img class="slide6_img1" src="images/slide6_img1.png" alt="">
+                    <div class="con_img6">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="page7">
+                <div class="slide_content">
+                    <img class="slide7_img1" src="images/slide7_img1.png" alt="">
+                    <div class="con_img7">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/style.js"></script>
+
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        direction: 'vertical',
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 0,
+        mousewheelControl: true
+    });
+
+    </script>
+
+
+</body>
+</html>
