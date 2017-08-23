@@ -74,22 +74,46 @@
             <div class="swiper-slide" id="page5">
                 <div class="slide_content">
                     <img class="slide5_img1" src="images/slide5_img1.png" alt="">
-                    <div class="con_img5">
+                    <img class="slide5_img2">
+                    <div class="clock">
+                        <i class="hour hour3">3</i>
+                        <i class="hour hour6">6</i>
+                        <i class="hour hour9">9</i>
+                        <i class="hour hour12">12</i>
+
+                        <div id="miao"></div>
+                        <div id="fen"></div>
+                        <div id="shi"></div>
                     </div>
                 </div>
             </div>
             <div class="swiper-slide" id="page6">
                 <div class="slide_content">
                     <img class="slide6_img1" src="images/slide6_img1.png" alt="">
-                    <div class="con_img6">
-                    </div>
+                    <img class="slide6_img2">
+                    <img class="slide6_img3" src="images/slide6_img3.png" alt="">
+                    <p>我们在招新</p>
                 </div>
             </div>
             <div class="swiper-slide" id="page7">
                 <div class="slide_content">
                     <img class="slide7_img1" src="images/slide7_img1.png" alt="">
-                    <div class="con_img7">
+                    <img class="slide7_img2" src="images/slide7_img2.png" alt="">
+                    <img class="slide7_img3" src="images/slide7_img3.png" alt="">
+                    <div class="form_div">
+                        <div class="form-container-2">
+                            <form>
+                                <input id="first-input-2" type="text" placeholder="姓名" required />
+                                <input id="second-input-2" type="email" placeholder="性别" required />
+                                <input id="third-input-2" type="text" placeholder="年级" required />
+                                <input id="fourth-input-2" type="email" placeholder="学院" required />
+                                <input id="fifth-input-2" type="email" placeholder="联系方式" required />
+                                <textarea id="msg-2" placeholder="如果你有在博客/Github/知乎/微博或其他社区活跃，请在这里附上你的ID，以及你擅长的编程语言和其他想说的话。最多255字。"> </textarea>
+                                <button type="submit">提交</button>
+                            </form>
+                        </div>
                     </div>
+                    <p class="footer_text">飞扬研发实验室</p>
                 </div>
             </div>
         </div>
@@ -111,6 +135,23 @@
         spaceBetween: 0,
         mousewheelControl: true
     });
+
+
+    var miao = document.getElementById("miao");
+    var fen = document.getElementById("fen");
+    var shi = document.getElementById("shi");
+
+    var clock = setInterval(function () {
+        var nowDate = new Date();//每次读取当前时间
+        var hour = nowDate.getHours();
+        var minute = nowDate.getMinutes();
+        var second = nowDate.getSeconds();
+
+        var circleHour = hour % 12 * 30;
+        shi.style.transform = "rotate(" + circleHour + "deg)";//读取到的时间为24小时制，转换为12小时
+        fen.style.transform = "rotate(" + minute * 6 + "deg)";
+        miao.style.transform = "rotate(" + second * 6 + "deg)";
+    }, 1000);
 
     </script>
 
