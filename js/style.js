@@ -1,3 +1,34 @@
+
+
+//
+//    //获取浏览器页面可见高度和宽度
+//    var _PageHeight = document.documentElement.clientHeight,
+//        _PageWidth = document.documentElement.clientWidth;
+////计算loading框距离顶部和左部的距离（loading框的宽度为50px，高度为50px）
+//    var _LoadingTop = _PageHeight > 50 ? (_PageHeight - 50) / 2 : 0,
+//        _LoadingLeft = _PageWidth > 50 ? (_PageWidth - 50) / 2 : 0;
+////在页面未加载完毕之前显示的loading Html自定义内容
+//    var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:#ffffff;filter:alpha(opacity=80);z-index:10000;"><div style="position: absolute; cursor1: wait; left: 50%; top:50%; margin-left: -25px; margin-top: -25px; width: 50px; height: 50px; color: #ffffff;"><img src="images/loading.gif" alt=""></div></div>';
+////呈现loading效果
+//    document.write(_LoadingHtml);
+//
+////window.onload = function () {
+////    var loadingMask = document.getElementById('loadingDiv');
+////    loadingMask.parentNode.removeChild(loadingMask);
+////};
+//
+////监听加载状态改变
+//    document.onreadystatechange = completeLoading;
+
+//加载状态为complete时移除loading效果
+//function completeLoading() {
+//    if (document.readyState == "complete") {
+//        var loadingMask = document.getElementById('loadingDiv');
+//        loadingMask.parentNode.removeChild(loadingMask);
+//    }
+//}
+
+
 /* page7表单 */
 
 jQuery.fn.foxholder = function(number) {
@@ -45,7 +76,7 @@ jQuery.fn.foxholder = function(number) {
     jQuery('#example-2 input').focus(function() {
         var labelTop;
         labelTop = parseInt(jQuery(this).css('padding-top'));
-        jQuery(this).next('label').css({'top': 0 - (labelTop + 6)});
+        jQuery(this).next('label').css({'top': 0 - (labelTop / 2 )});
         console.log(labelTop);
     });
 
@@ -77,6 +108,7 @@ $(function () {
     refresh_footer_text();
     refresh_change_img();
     refresh_flower_img();
+    refresh_form();
 
     $(window).resize(function () {
         refresh_slide_content();
@@ -84,6 +116,7 @@ $(function () {
         refresh_footer_text();
         refresh_change_img();
         refresh_flower_img();
+        refresh_form();
     });
 });
 
@@ -92,9 +125,9 @@ $(function () {
 function refresh_slide_content(){
     var slide_content = $(".slide_content");
 
-    slide_content.height($(window).height() - 80);
-    slide_content.width($(window).width() - 80);
-    slide_content.css({"margin-left": "39px", "margin-top": "39px" });
+    slide_content.height($(window).height() - 60);
+    slide_content.width($(window).width() - 60);
+    slide_content.css({"margin-left": "29px", "margin-top": "29px" });
 
 }
 
@@ -118,16 +151,6 @@ function refresh_code_div(){
     code_div.css("left", code_div_left + "%");
 }
 
-/* 设置 page7 text的位置 */
-function refresh_footer_text(){
-    var window_width = $(window).width();
-    var footer_text = $(".footer_text");
-    var footer_text_width = footer_text.outerWidth();
-
-    var footer_text_left = ( 100 - ( footer_text_width / window_width ) * 100 ) / 2;
-
-    footer_text.css("left", footer_text_left+ "%");
-}
 
 /* page5图片替换 */
 function refresh_change_img(){
@@ -142,15 +165,18 @@ function refresh_change_img(){
     }
 }
 
-/* 设置page6图片大小 */
+/* 设置page6图片大小、 搜索框位置 */
 function refresh_flower_img(){
     var window_width = $(window).width();
     var slide6_img2 = $(".slide6_img2");
     var slide6_img3 = $(".slide6_img3");
+    var search_width = $(".search form");
 
-    var img2_width = window_width - 80;
+    var search_left = ( window_width - search_width.width() ) / 2;
 
-    var img3_width = window_width - 80;
+    var img2_width = window_width - 60;
+
+    var img3_width = window_width - 60;
     var img3_height = img3_width * 121 / 2000;
 
     var img2_height;
@@ -169,4 +195,45 @@ function refresh_flower_img(){
     slide6_img2.height(img2_height);
     slide6_img3.width(img3_width);
     slide6_img3.height(img3_height);
+
+    $(".search").css("left",search_left + "px");
 }
+
+/* page7 表单位置 */
+function refresh_form(){
+    var window_height = $(window).height();
+    var form_div = $(".form_div");
+    var form_height = form_div.height();
+    var form_top = ( window_height - form_height ) / 2;
+
+    form_div.css("top", form_top + "px");
+
+}
+
+/* 设置 page7 text的位置 */
+function refresh_footer_text(){
+    var window_width = $(window).width();
+    var footer_text = $(".footer_text");
+    var footer_text_width = footer_text.outerWidth();
+
+    var footer_text_left = ( 100 - ( footer_text_width / window_width ) * 100 ) / 2;
+
+    footer_text.css("left", footer_text_left+ "%");
+}
+
+/* 时钟效果 */
+var miao = document.getElementById("miao");
+var fen = document.getElementById("fen");
+var shi = document.getElementById("shi");
+
+var clock = setInterval(function () {
+    var nowDate = new Date();//每次读取当前时间
+    var hour = nowDate.getHours();
+    var minute = nowDate.getMinutes();
+    var second = nowDate.getSeconds();
+
+    var circleHour = hour % 12 * 30;
+    shi.style.transform = "rotate(" + circleHour + "deg)";//读取到的时间为24小时制，转换为12小时
+    fen.style.transform = "rotate(" + minute * 6 + "deg)";
+    miao.style.transform = "rotate(" + second * 6 + "deg)";
+}, 1000);
